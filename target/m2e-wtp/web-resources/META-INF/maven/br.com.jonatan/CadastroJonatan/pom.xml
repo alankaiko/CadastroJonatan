@@ -18,13 +18,22 @@
 		</dependency>
 
 
-		<!-- Núcleo do Hibernate -->
+  		  	
+		<!-- Implementacao do Bean Validation -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.2.4.Final</version>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.0.1.Final</version>
 			<scope>compile</scope>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>4.3.11.Final</version>
+		</dependency>
+
 
 		<!-- Implementação de EntityManager da JPA -->
 		<dependency>
@@ -33,7 +42,6 @@
 			<version>5.2.4.Final</version>
 			<scope>compile</scope>
 		</dependency>
-
 		
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
@@ -41,24 +49,7 @@
 		    <artifactId>postgresql</artifactId>
 		    <version>9.3-1102-jdbc4</version>
 		</dependency>
-
-		<!-- PrimeFaces (biblioteca de componentes) -->
-		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<version>6.0</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- Mojarra (implementacao do JSF) -->
-		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>javax.faces</artifactId>
-			<version>2.2.8</version>
-			<scope>compile</scope>
-		</dependency>
-
-
+		
 		<!-- API de Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -66,6 +57,15 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/com.toedter/jcalendar -->
+		<dependency>
+		    <groupId>com.toedter</groupId>
+		    <artifactId>jcalendar</artifactId>
+		    <version>1.4</version>
+		</dependency>
+		
 	</dependencies>
 	
 
