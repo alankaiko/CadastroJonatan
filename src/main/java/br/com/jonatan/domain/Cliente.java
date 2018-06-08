@@ -4,43 +4,25 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-@Table
-@Entity
-public class Cliente implements Serializable {
+public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
 	private Long id;
 	private String nome;
 	private String documentoId;
 	private Date dataCadastro;
 	private Date dataNasc;
-	private TipoPessoa enumTipo;
 	private String numeroIdentificacao;
-
+	
 	private List<Contato> contato;
 	private List<Endereco> endereco;
-
+	
 	public Cliente() {
-		nome = new String();
-		documentoId = new String();
-		numeroIdentificacao = new String();
+		nome= new String();
+		documentoId= new String();
+		numeroIdentificacao= new String();
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -49,7 +31,6 @@ public class Cliente implements Serializable {
 		this.id = id;
 	}
 
-	@Column(nullable = false, length = 100)
 	public String getNome() {
 		return nome;
 	}
@@ -58,7 +39,6 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 	}
 
-	@Column(name = "doc_receita_federal", nullable = false, length = 14)
 	public String getDocumentoId() {
 		return documentoId;
 	}
@@ -75,7 +55,6 @@ public class Cliente implements Serializable {
 		this.dataCadastro = dataCadastro;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDataNasc() {
 		return dataNasc;
 	}
@@ -92,7 +71,6 @@ public class Cliente implements Serializable {
 		this.numeroIdentificacao = numeroIdentificacao;
 	}
 
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	public List<Contato> getContato() {
 		return contato;
 	}
@@ -101,23 +79,12 @@ public class Cliente implements Serializable {
 		this.contato = contato;
 	}
 
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	public List<Endereco> getEndereco() {
 		return endereco;
 	}
 
 	public void setEndereco(List<Endereco> endereco) {
 		this.endereco = endereco;
-	}
-
-	public void setEnumTipo(TipoPessoa enumTipo) {
-		this.enumTipo = enumTipo;
-	}
-
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false, length = 10)
-	public TipoPessoa getEnumTipo() {
-		return enumTipo;
 	}
 
 	@Override
@@ -148,14 +115,26 @@ public class Cliente implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Cliente [id=").append(id).append(", nome=")
-				.append(nome).append(", documentoId=").append(documentoId)
-				.append(", dataCadastro=").append(dataCadastro)
-				.append(", dataNasc=").append(dataNasc)
-				.append(", numeroIdentificacao=").append(numeroIdentificacao)
-				.append(", contato=").append(contato).append(", endereco=")
-				.append(endereco).append("]");
+		builder.append("Cliente [id=")
+			.append(id)
+			.append(", nome=")
+			.append(nome)
+			.append(", documentoId=")
+			.append(documentoId)
+			.append(", dataCadastro=")
+			.append(dataCadastro)
+			.append(", dataNasc=")
+			.append(dataNasc)
+			.append(", numeroIdentificacao=")
+			.append(numeroIdentificacao)
+			.append(", contato=")
+			.append(contato)
+			.append(", endereco=")
+			.append(endereco)
+			.append("]");
 		return builder.toString();
 	}
-
+	
+	
+	
 }
