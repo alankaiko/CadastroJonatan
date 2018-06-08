@@ -17,13 +17,19 @@
 			<version>1.0.10</version>
 		</dependency>
 
-
-  		  	
 		<!-- Implementacao do Bean Validation -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.0.1.Final</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- PrimeFaces (biblioteca de componentes) -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.0</version>
 			<scope>compile</scope>
 		</dependency>
 		
@@ -33,7 +39,6 @@
 		    <artifactId>hibernate-core</artifactId>
 		    <version>4.3.11.Final</version>
 		</dependency>
-
 
 		<!-- Implementação de EntityManager da JPA -->
 		<dependency>
@@ -57,7 +62,6 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
 		
 		<!-- https://mvnrepository.com/artifact/com.toedter/jcalendar -->
 		<dependency>
