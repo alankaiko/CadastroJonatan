@@ -19,6 +19,7 @@
 		    <scope>test</scope>
 		</dependency>
 		
+
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
 			<artifactId>all-themes</artifactId>
