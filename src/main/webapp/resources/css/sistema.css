@@ -3,12 +3,22 @@
 body {
 	font-size: 12px;
 	font-family: Arial, Helvetica, sans-serif;
-	margin: 0px;
+	margin: 10px;
+	margin-top: 1px;
 	font-weight: normal;
+	width: 95%;
 }
+
+
 
 .colunas{
 	text-align: center;
 }
 
+.esquerda {
+	width: 30%;
+}
 
+.direita{
+	
+}
