@@ -1,24 +1,19 @@
 @charset "utf-8";
 
-body {
-	font-size: 12px;
-	font-family: Arial, Helvetica, sans-serif;
-	margin: 10px;
-	margin-top: 1px;
-	font-weight: normal;
-	width: 95%;
-}
-
-
-
-.colunas{
+#painelDados {
 	text-align: center;
 }
 
-.esquerda {
-	width: 30%;
+.painelCampos {
+	margin-top: 10px;
 }
 
-.direita{
-	
+#painelDados .painelCampos .rotulo{
+	padding: 10px;
+	background-color: #000000;
+}
+
+#painelDados .painelCampos .campo {
+	padding:10px;
+	background-color: #400080;
 }
