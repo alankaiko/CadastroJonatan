@@ -29,5 +29,21 @@ body {
 	width: 20%;
 	border: 1px #CC0000 solid;
 	margin-top: 20px;
+	padding: 5px;
 
 }
+
+#painelEsquerda #titulo {
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+	backgr: #EEF2F6;
+}
+
+#painelEsquerda #titulo img {
+	width: 35%;
+	height: auto;
+	
+}
+
+
