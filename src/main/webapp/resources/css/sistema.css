@@ -1,19 +1,46 @@
 @charset "utf-8";
 
+html{
+	height: 100%;
+}
+
+body {
+	font-size: 13px;
+}
+
 #painelDados {
-	text-align: center;
+	margin-top: 30px;
+	margin-left: 15%;
 }
 
 .painelCampos {
 	margin-top: 10px;
+	margin-left: 0;
 }
 
 #painelDados .painelCampos .rotulo{
 	padding: 10px;
-	background-color: #000000;
+	margin-right: 2px;
 }
 
 #painelDados .painelCampos .campo {
-	padding:10px;
-	background-color: #400080;
+	margin-right: 25px;
+}
+
+#corpo {
+	width: 100%;
+}
+
+#mainCentral {
+	float: right;
+	width: 78%;
+	height: auto;
+}
+
+#painelEsquerda {
+	float: left;
+	width: 20%;
+	border: 1px #CC0000 solid;
+	margin-top: 20px;
+
 }
