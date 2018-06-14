@@ -13,14 +13,17 @@ public class Cliente implements Serializable{
 	private Date dataCadastro;
 	private Date dataNasc;
 	private String numeroIdentificacao;
+	private TipoPessoa tipo;
 	
-	private List<Contato> contato;
-	private List<Endereco> endereco;
+	private Contato contato;
+	private Endereco endereco;
 	
 	public Cliente() {
 		nome= new String();
 		documentoId= new String();
 		numeroIdentificacao= new String();
+		contato = new Contato();
+		endereco = new Endereco();
 	}
 
 	public Long getId() {
@@ -71,20 +74,30 @@ public class Cliente implements Serializable{
 		this.numeroIdentificacao = numeroIdentificacao;
 	}
 
-	public List<Contato> getContato() {
+	
+	
+	public Contato getContato() {
 		return contato;
 	}
 
-	public void setContato(List<Contato> contato) {
+	public void setContato(Contato contato) {
 		this.contato = contato;
 	}
 
-	public List<Endereco> getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(List<Endereco> endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public void setTipo(TipoPessoa tipo) {
+		this.tipo = tipo;
+	}
+	
+	public TipoPessoa getTipo() {
+		return tipo;
 	}
 
 	@Override
@@ -127,6 +140,8 @@ public class Cliente implements Serializable{
 			.append(dataNasc)
 			.append(", numeroIdentificacao=")
 			.append(numeroIdentificacao)
+			.append(", tipo=")
+			.append(tipo)
 			.append(", contato=")
 			.append(contato)
 			.append(", endereco=")
@@ -134,6 +149,7 @@ public class Cliente implements Serializable{
 			.append("]");
 		return builder.toString();
 	}
+
 	
 	
 	

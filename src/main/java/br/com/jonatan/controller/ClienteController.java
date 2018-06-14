@@ -25,7 +25,8 @@ public class ClienteController {
 	
 	
 	public void Salvando(Cliente cliente){
-		this.service.Salvar(this.cliente);
+		System.out.println(cliente.toString());
+		//this.service.Salvar(this.cliente);
 	}
 	
 	public void Excluindo(Cliente cliente){
@@ -33,8 +34,13 @@ public class ClienteController {
 	}
 
 
-	public void PuxarListaEstado(){
+	public void Inicializar(){
 		listaEstados = ListasUtil.Estados();
+	}
+	
+	@SuppressWarnings("static-access")
+	public TipoPessoa[] getTipos(){
+		return tipoPessoa.values();
 	}
 	
 	
@@ -65,9 +71,6 @@ public class ClienteController {
 	public void setTipoPessoa(TipoPessoa tipoPessoa) {
 		this.tipoPessoa = tipoPessoa;
 	}
-	
-	
-	
 	
 	
 }

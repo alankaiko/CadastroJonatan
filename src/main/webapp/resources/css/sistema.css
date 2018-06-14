@@ -9,23 +9,10 @@ body {
 }
 
 #painelDados {
-	margin-top: 30px;
 	margin-left: 15%;
 }
 
-.painelCampos {
-	margin-top: 10px;
-	margin-left: 0;
-}
 
-#painelDados .painelCampos .rotulo{
-	padding: 10px;
-	margin-right: 2px;
-}
-
-#painelDados .painelCampos .campo {
-	margin-right: 25px;
-}
 
 #corpo {
 	width: 100%;

@@ -10,240 +10,139 @@
 	<ui:define name="titulo">Cadastrando Clientes</ui:define>
 	
 	<ui:define name="corpo">
-		<h:form id="frmCadastro" acceptcharset="ISO-8859-1">  
-        	<h1>Novo cliente</h1>  
-	         
-	        <p:messages id="messages" autoUpdate="true" closable="true" />
-	         
-	        <p:toolbar style="margin-top: 20px">
-	            <p:toolbarGroup>
-	                <p:button value="Novo" icon="ui-icon-plusthick"/>
-	                <p:commandButton value="Salvar" ajax="false" update="@frmCadastro" icon="ui-icon-disk"/>  
-		        </p:toolbarGroup>
-	            
-	            <p:toolbarGroup align="right">
-		            <p:button value="Pesquisar" icon="ui-icon-search"/>
-		        </p:toolbarGroup>
-	   		</p:toolbar>  
-	   		        
-        	<p:panel id="pnlDadosPessoais" header="Dados Pessoais" style="margin-top: 20px">
-	             
-				<p:focus context="pnlDadosPessoais"/>
-		 
-				<h:inputHidden id="codigo"/>
-				<h:inputHidden id="ativo"/>
-		 
-				<p:panelGrid columns="4" style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo, rotulo campo">                
-					<p:outputLabel value="Corretor Responsável:" />
-					<p:selectOneMenu id="corretor" required="true" requiredMessage="Corretor deve ser informado." 
-						immediate="true">
-						
-						<f:selectItem itemLabel="Selecione" />
-						<f:selectItems  itemValue="#" />    
-					</p:selectOneMenu>
-				 
-					<p:outputLabel value="Data do Cadastro:" />
-					<p:outputLabel id="datacadastro">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
-					</p:outputLabel>                
-		   
-					<p:outputLabel value="Nome:" />
-					<p:inputText id="nome" label="Nome" size="80" required="true"
-						 requiredMessage="Nome deve ser informado." immediate="true"/>
+		<div id="corpo">
+			<h:form id="frmCadastro" acceptcharset="ISO-8859-1">  
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+			
+				<div id="painelEsquerda">
+					f<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />f<br /><br /><br /><br /><br /><br />f<br /><br /><br /><br />f<br /><br /><br />f
+				</div>
+				
+				<div id="mainCentral">
+					
+					
+					 <p:toolbar style="margin-top: 20px">
+			            <p:toolbarGroup>
+			                <p:button value="Novo" icon="ui-icon-plusthick"/>
+			                <p:commandButton value="Salvar" ajax="false" update="@frmCadastro" icon="ui-icon-disk"/>  
+				        </p:toolbarGroup>
+			            
+			            <p:toolbarGroup align="right">
+				            <p:button value="Pesquisar" icon="ui-icon-search"/>
+				        </p:toolbarGroup>
+		   			</p:toolbar>  
+		   		        
+		        	<p:panel id="pnlDadosPessoais" header="Dados Pessoais" style="margin-top: 3px; width:85%">
+						<p:focus context="pnlDadosPessoais"/>
+				 		
+				 		<div id="painelDados">
+							<h:inputHidden id="codigo"/>
+							<h:inputHidden id="ativo"/>
 					 
-					<p:outputLabel value="Data Nascimento:" />
-					<p:calendar id="nascimento" pattern="dd/MM/yyyy" mask="true" label="Nascimento" size="8"
-							required="true" requiredMessage="Data de Nascimento deve ser informada." immediate="true">
-					</p:calendar>                 
+							<h:panelGrid columns="1" style="width: 100%;">
+								<p:outputLabel value="Código" styleClass="rotulo" />
+							
+								<p:inputText styleClass="campo" required="true"  immediate="true" size="20"
+										requiredMessage="Nome do cliente deve ser informado." disabled="true"/>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="1">
+								<p:outputLabel value="Nome:" styleClass="rotulo" />
+								<p:inputText styleClass="campo" id="nome" label="Nome" size="80" required="true" 
+									requiredMessage="Nome deve ser informado." immediate="true"/>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="2" style="width: 100%;">
+								<p:outputLabel value="CPF/CNPJ" styleClass="rotulo"/>
 								
-					<p:outputLabel value="Pessoa:" />
-					<p:selectOneMenu id="pessoa" label="Pessoa" required="true" 
-						requiredMessage="Tipo de Pessoa deve ser informado." immediate="true">
+								<p:outputLabel styleClass="rotulo" value="RG/Inscrição:" />
+							
+								<p:inputText styleClass="campo" required="true" size="20"
+									requiredMessage="CPF/CNPJ deve ser informado" immediate="true"/>
 						
-						<f:selectItems itemValue="#"/>
-					</p:selectOneMenu>
+								<p:inputText size="20"/>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="2" style="width: 100%;">
+								<p:outputLabel styleClass="rotulo" value="Data Nascimento"/>
+								<p:outputLabel styleClass="rotulo" value="Tipo"/>
 	
-					<p:outputLabel value="Estado Civil:" for="estadocivil"/>
-					<p:selectOneMenu id="estadocivil">
-						<f:selectItems itemValue="#"/>
-					</p:selectOneMenu>  
-					 
-					<p:outputLabel value="Sexo:" for="sexo"/>
-					<p:selectOneMenu id="sexo">
-						<f:selectItems itemValue="#"/>
-					</p:selectOneMenu>                
-						 
-					<p:outputLabel value="Profissão:" />
-					<p:selectOneMenu id="profissao" label="Profissao" required="true" 
-						requiredMessage="Profissão deve ser informada." immediate="true">                          
-						
-						<f:selectItem itemLabel="Selecione" />
-						<f:selectItems itemValue="#" />
-					</p:selectOneMenu>
-				</p:panelGrid>         
-			</p:panel>
-			
-			<p:panel header="Documentação" id="pnlDocumentacao" style="margin-top: 20px">                    
-				<h:panelGrid columns="10" cellpadding="5" columnClasses="rotulo, campo">                                  
-					<p:outputLabel id="cpfcnpj"/>
-					<p:inputMask id="cpf" required="true" requiredMessage="CPF / CNPJ deve ser informado." size="15" immediate="true" /> 
-					 
-					<p:outputLabel value="Tipo Documento:"/>
-					<p:selectOneMenu id="tipodoc" style="width:160px" required="true" 
-						requiredMessage="Tipo de Documento deve ser informado." immediate="true">
-						
-						<f:selectItem itemLabel="RG" itemValue="RG" />
-						<f:selectItem itemLabel="RNE" itemValue="RNE" />
-						<f:selectItem itemLabel="DOCTO DE CLASSE" itemValue="DOCTO DE CLASSE" />
-					</p:selectOneMenu>
-					 
-					<p:outputLabel value="Nº Documento:" />
-					<p:inputMask mask="999?999999999999" id="numdoc" size="15"
-								 required="true" requiredMessage="Nº Documento deve ser informado." immediate="true"/>
-				 
-					<p:outputLabel value="Órgão Emissor:" />
-					<p:inputText id="orgaodoc" size="10" required="true" 
-						requiredMessage="Órgão Emissor deve ser informado." immediate="true"/>
-						 
-					<p:outputLabel value="Emissão/Validade:" />
-					<p:calendar id="datadoc" pattern="dd/MM/yyyy" mask="true" size="8" required="true"
-								requiredMessage="Data de Emissão/Validade deve ser informada." immediate="true">
-					</p:calendar>                   
-				</h:panelGrid>
-			</p:panel>
-			
-			<p:panel header="CNH" style="margin-top: 20px">           
-				<h:panelGrid columns="8" cellpadding="5" columnClasses="rotulo, campo">
-					<p:outputLabel value="Nº Registro:" />
-					<p:inputMask mask="999?999999999999" id="numcnh" size="15" />
-					 
-					<p:outputLabel value="Validade: " />
-					<p:calendar id="validadecnh" pattern="dd/MM/yyyy" mask="true" size="8">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
-					</p:calendar>                 
-					 
-					<p:outputLabel value="Categoria:" />
-					<p:inputText id="categoriacnh" size="5"/>
-				 
-					<p:outputLabel value="Primeira Habilitação: " />
-					<p:calendar id="primeiracnh" pattern="dd/MM/yyyy" mask="true" size="8" timeZone="America/Sao_Paulo">
-					</p:calendar>                                    
-				</h:panelGrid>
-			</p:panel> 
-			
-			<p:tabView dynamic="true" cache="false" style="margin-top: 20px">
-				<p:tab title="Endereços">                
-					<p:dataTable id="enderecosTable" style="margin-top: 10px" rows="2" paginator="true" 
-						paginatorAlwaysVisible="false" paginatorPosition="bottom">
-						  
-						<p:column headerText="Tipo" style="text-align: left; width: 50%">
-							<h:outputText id="tipoend"/>
-						</p:column>    
-						 
-						 <p:column headerText="Logradouro" style="text-align: left; width: 100%"> 
-							 <h:outputText id="logradouro"/>
-						</p:column>
-					 
-						<p:column headerText="Número" style="text-align: center; width: 30%">
-							<h:outputText id="numero"/> 
-						</p:column>    
-					 
-						<p:column headerText="Complemento" style="text-align: left; width: 40%">
-							<h:outputText id="complemento"/>
-						</p:column>
-						 
-						<p:column headerText="Bairro" style="text-align: left; width: 60%">
-							<h:outputText id="bairro"/>
-						</p:column>    
-						 
-						<p:column headerText="Cidade" style="text-align: left; width: 70%">
-							<h:outputText id="cidade"/>
-						</p:column>    
-						 
-						<p:column headerText="UF" style="text-align: center; width: 20%">
-							<h:outputText id="uf"/>
-						</p:column>    
-			
-						<p:column headerText="CEP" style="text-align: center; width: 30%">
-							<h:outputText id="cep"/> 
-						</p:column>
-						 
-						<p:column style="text-align: center; width: 30%"> 
-							<p:commandButton title="Editar" ajax="false" icon="ui-icon-pencil">
-							   
-							</p:commandButton>    
-			
-							<p:commandButton title="Excluir" icon="ui-icon-trash">
+								<p:calendar styleClass="campo" id="nascimento" pattern="dd/MM/yyyy"
+									 mask="true" label="Nascimento" size="20"/>
+									 
+								<p:selectOneRadio id="pessoa" value="#{clienteController.tipoPessoa}">
+						            <f:selectItem itemLabel="Física"/>
+						            <f:selectItem itemLabel="Jurídica"/>
+					        	</p:selectOneRadio>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="2" style="width: 100%;">
+								<p:outputLabel styleClass="rotulo" value="Telefone" />
 								
-							</p:commandButton>
-						</p:column>    
-					</p:dataTable>
-					<p:commandButton value="Novo" ajax="false"  icon="ui-icon-plusthick" style="margin-top: 20px"/>  
-				</p:tab>
-				 
-				 <p:tab title="Telefones">
-					 <p:dataTable id="telefonesTable" style="margin-top: 10px" rows="2" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
-						  
-						<p:column headerText="Tipo" style="text-align: left; width: 30%">
-							<h:outputText id="tipotel"/>
-						</p:column>    
-					 
-						<p:column headerText="Telefone" style="text-align: center; width: 30%">
-							<h:outputText id="telefone"/> 
-						</p:column>    
-					 
-						<p:column headerText="Observação" style="text-align: left; width: 100%"> 
-							<h:outputText id="observacao" /> 
-						</p:column>    
-						<p:column style="text-align: center; width: 20%"> 
-							<p:commandButton title="Editar" ajax="false" icon="ui-icon-pencil">
+								<p:outputLabel styleClass="rotulo" value="Celular" />
+							
+								<p:inputMask size="20" styleClass="campo" placeholder="(62)0000-0000"/>
+								
+								<p:inputMask size="20" styleClass="campo" placeholder="(62)0 0000-0000" mask="(99)9 9999-9999"/>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="1">
+								<p:outputLabel styleClass="rotulo" value="E-mail" />
+						
+							    <p:inputText size="80" styleClass="campo" placeholder="email@email.com.br"/>
 							   
-							</p:commandButton>    
-			
-							<p:commandButton title="Excluir" icon="ui-icon-trash" >
-							   
-							</p:commandButton>
-						</p:column>    
-					</p:dataTable>
-					<p:commandButton value="Novo" ajax="false"  icon="ui-icon-plusthick" style="margin-top: 20px"/> 
-				</p:tab>            
-				 
-				<p:tab title="E-mails"> 
-					 <br/>
-					 <p:commandButton value="Novo E-mail" icon="ui-icon-plusthick" process="@this">
-						 <f:param name="cliente"/>
-					 </p:commandButton>
-					 <p:dataTable id="tabelaEmails" style="margin-top: 20px" emptyMessage="Nenhum email encontrado." rows="2"
-								  paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
-						  
-						<p:column headerText="Tipo" style="text-align: center; width: 100px">
-							<h:outputText id="tipoemail"/>
-						</p:column>    
-					 
-						<p:column headerText="Email" style="text-align: center">
-							<h:outputText id="email"/> 
-						</p:column>    
-					 
-						<p:column headerText="Observação" style="text-align: center"> 
-							<h:outputText id="obs"/> 
-						</p:column>    
-						<p:column> 
-							<p:commandButton title="Editar" ajax="false" icon="ui-icon-pencil">
-							   
-							</p:commandButton>    
-			
-							<p:commandButton title="Excluir" icon="ui-icon-trash" >
-							  
-							</p:commandButton>
-						</p:column>    
-					</p:dataTable>
-				</p:tab> 
-				 
-				<p:tab title="Anexos">
-					<br/>
-					<p:commandButton value="Novo Anexo" ajax="false" icon="ui-icon-plusthick" process="@this"/>                               
-				</p:tab>
-				</p:tabView>               
-    	</h:form>
+					      	</h:panelGrid>
+							
+							<h:panelGrid columns="1">
+								<p:outputLabel styleClass="rotulo" value="Logradouro:"/>
+								<p:inputText styleClass="campo" size="80"/>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="1">
+								<p:outputLabel styleClass="rotulo" value="Complemento"/>
+								<p:inputText styleClass="campo" size="80"/>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="2" style="width: 100%;">
+								<p:outputLabel styleClass="rotulo" value="Número"/>
+								<p:outputLabel styleClass="rotulo" value="Bairro:"/>
+							
+								<p:inputNumber styleClass="campo" size="20">
+									<f:convertNumber integerOnly="true"    />
+								</p:inputNumber>
+								
+								<p:inputText styleClass="campo" size="28"/>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="2" style="width: 100%;">
+								<p:outputLabel styleClass="rotulo" value="Cidade"/>
+								
+								<p:outputLabel styleClass="rotulo" value="UF"/>
+							
+								<p:inputText styleClass="campo" size="20"/>
+								
+								 <p:selectOneMenu id="estado" value="#{clienteController.listaEstados}" style="vertical-align:middle">
+			                 	<f:selectItem itemLabel="Selecione..." />
+	               					<f:selectItems value="#{clienteController.listaEstados}" var="listaEstado" itemLabel="#{listaEstado}"/>  
+			               		</p:selectOneMenu>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="2" style="width: 100%;">
+							 	<p:outputLabel styleClass="rotulo" value="CEP"/>
+							 	<p:outputLabel styleClass="rotulo" value="Data do Cadastro:"/>	  
+																
+							    <p:inputMask styleClass="campo" size="20" placeholder="00000-000"  mask="99999-999"/>	
+							    <p:calendar disabled="true" size="20" styleClass="campo" pattern="dd/MM/yyyy" mask="true"/>  
+							</h:panelGrid>	
+						</div>
+					</p:panel>		
+					
+					
+				</div>
+				
+		
+			</h:form>
+		</div>
 	</ui:define>
+	
 </ui:composition>
