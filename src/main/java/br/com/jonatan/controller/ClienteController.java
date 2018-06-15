@@ -2,6 +2,10 @@ package br.com.jonatan.controller;
 
 import java.util.List;
 
+
+
+
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -10,7 +14,7 @@ import br.com.jonatan.domain.TipoPessoa;
 import br.com.jonatan.service.ClienteService;
 import br.com.jonatan.util.ListasUtil;
 
-@ManagedBean
+@ManagedBean(name="ClienteBean")
 @ViewScoped
 public class ClienteController {
 	private Cliente cliente;
@@ -24,12 +28,12 @@ public class ClienteController {
 	}
 	
 	
-	public void Salvando(Cliente cliente){
+	public void Salvando(){
 		System.out.println(cliente.toString());
 		//this.service.Salvar(this.cliente);
 	}
 	
-	public void Excluindo(Cliente cliente){
+	public void Excluindo(){
 		this.service.Excluir(this.cliente);
 	}
 

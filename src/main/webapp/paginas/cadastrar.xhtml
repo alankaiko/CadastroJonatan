@@ -8,7 +8,7 @@
 	template="/WEB-INF/templates/LayoutPadrao.xhtml">
 	
 	<f:metadata>
-		<f:viewAction action="#{clienteController.Inicializar}" />
+		<f:viewAction action="#{ClienteBean.Inicializar}" />
 	</f:metadata>
 	
 	<ui:define name="titulo">Cadastrar Clientes</ui:define>
@@ -25,7 +25,7 @@
 			            <p:toolbarGroup>
 			                <p:button value="Novo" icon="ui-icon-plusthick"/>
 			                <p:commandButton value="Salvar" ajax="false" update="@frmCadastro"
-			                	 icon="ui-icon-disk" action="#{clienteController.Salvando}"/>  
+			                	 icon="ui-icon-disk" action="#{ClienteBean.Salvando}"/>  
 				        </p:toolbarGroup>
 			            
 			            <p:toolbarGroup align="right">
@@ -51,7 +51,7 @@
 								<p:outputLabel value="Nome:" styleClass="rotulo" />
 								
 								<p:inputText styleClass="campo" id="nome" label="Nome" size="80" required="true" immediate="true"
-									requiredMessage="Nome deve ser informado." value="#{clienteController.cliente.nome}"/>
+									requiredMessage="Nome deve ser informado." value="#{ClienteBean.cliente.nome}"/>
 							</h:panelGrid>
 							
 							<h:panelGrid columns="2" style="width: 100%;">
@@ -60,9 +60,9 @@
 								<p:outputLabel styleClass="rotulo" value="RG/Inscrição:" />
 							
 								<p:inputText styleClass="campo" size="20" requiredMessage="CPF/CNPJ deve ser informado"
-								value="#{clienteController.cliente.documentoId}" required="true" immediate="true"/>
+								value="#{ClienteBean.cliente.documentoId}" required="true" immediate="true"/>
 						
-								<p:inputText size="20" value="#{clienteController.cliente.numeroIdentificacao}"/>
+								<p:inputText size="20" value="#{ClienteBean.cliente.numeroIdentificacao}"/>
 							</h:panelGrid>
 							
 							<h:panelGrid columns="2" style="width: 100%;">
@@ -70,10 +70,10 @@
 								<p:outputLabel styleClass="rotulo" value="Tipo" for="tipoPessoa"/>
 	
 								<p:calendar styleClass="campo" id="nascimento" pattern="dd/MM/yyyy"
-									value="#{clienteController.cliente.dataNasc}" mask="true" label="Nascimento" size="20"/>
+									value="#{ClienteBean.cliente.dataNasc}" mask="true" label="Nascimento" size="20"/>
 									 
-								<p:selectOneRadio id="tipoPessoa" value="#{clienteController.cliente.tipo}">
-						            <f:selectItems value="#{clienteController.tipos}" />
+								<p:selectOneRadio id="tipoPessoa" value="#{ClienteBean.cliente.tipo}">
+						            <f:selectItems value="#{ClienteBean.tipos}" />
 					        	</p:selectOneRadio>
 							</h:panelGrid>
 							
@@ -83,39 +83,39 @@
 								<p:outputLabel styleClass="rotulo" value="Celular" />
 							
 								<p:inputMask size="20" styleClass="campo" placeholder="(62)0000-0000" 
-									value="#{clienteController.cliente.contato.fixo}"/>
+									value="#{ClienteBean.cliente.contato.fixo}"/>
 								
 								<p:inputMask size="20" styleClass="campo" placeholder="(62)0 0000-0000" 
-									mask="(99)9 9999-9999" value="#{clienteController.cliente.contato.celular}"/>
+									mask="(99)9 9999-9999" value="#{ClienteBean.cliente.contato.celular}"/>
 							</h:panelGrid>
 							
 							<h:panelGrid columns="1">
 								<p:outputLabel styleClass="rotulo" value="E-mail" />
 						
 							    <p:inputText size="80" styleClass="campo" placeholder="email@email.com.br" 
-							    	value="#{clienteController.cliente.contato.email}"/>
+							    	value="#{ClienteBean.cliente.contato.email}"/>
 							   
 					      	</h:panelGrid>
 							
 							<h:panelGrid columns="1">
 								<p:outputLabel styleClass="rotulo" value="Logradouro:"/>
-								<p:inputText styleClass="campo" size="80" value="#{clienteController.cliente.endereco.logradouro}"/>
+								<p:inputText styleClass="campo" size="80" value="#{ClienteBean.cliente.endereco.logradouro}"/>
 							</h:panelGrid>
 							
 							<h:panelGrid columns="1">
 								<p:outputLabel styleClass="rotulo" value="Complemento"/>
-								<p:inputText styleClass="campo" size="80" value="#{clienteController.cliente.endereco.complemento}"/>
+								<p:inputText styleClass="campo" size="80" value="#{ClienteBean.cliente.endereco.complemento}"/>
 							</h:panelGrid>
 							
 							<h:panelGrid columns="2" style="width: 100%;">
 								<p:outputLabel styleClass="rotulo" value="Número"/>
 								<p:outputLabel styleClass="rotulo" value="Bairro:"/>
 							
-								<p:inputNumber styleClass="campo" size="20" value="#{clienteController.cliente.endereco.numero}">
+								<p:inputNumber styleClass="campo" size="20" value="#{ClienteBean.cliente.endereco.numero}">
 									<f:convertNumber integerOnly="true"    />
 								</p:inputNumber>
 								
-								<p:inputText styleClass="campo" size="28" value="#{clienteController.cliente.endereco.bairro}"/>
+								<p:inputText styleClass="campo" size="28" value="#{ClienteBean.cliente.endereco.bairro}"/>
 							</h:panelGrid>
 							
 							<h:panelGrid columns="2" style="width: 100%;">
@@ -123,31 +123,30 @@
 								
 								<p:outputLabel styleClass="rotulo" value="UF"/>
 							
-								<p:inputText styleClass="campo" size="20" value="#{clienteController.cliente.endereco.cidade}"/>
+								<p:inputText styleClass="campo" size="20" value="#{ClienteBean.cliente.endereco.cidade}"/>
 								
-								<p:selectOneMenu id="estado" value="#{clienteController.cliente.endereco.estado}" style="vertical-align:middle">
+								<p:selectOneMenu id="estado" value="#{ClienteBean.cliente.endereco.estado}" style="vertical-align:middle">
 			                 		<f:selectItem itemLabel="Selecione..." />
-	               					<f:selectItems value="#{clienteController.listaEstados}" var="listaEstado" 
+	               					<f:selectItems value="#{ClienteBean.listaEstados}" var="listaEstado" 
 	               						itemValue="#{listaEstado}" itemLabel="#{listaEstado}"/>  
 			               		</p:selectOneMenu>			   
 							</h:panelGrid>
 							
-							
-						
 							
 							<h:panelGrid columns="2" style="width: 100%;">
 							 	<p:outputLabel styleClass="rotulo" value="CEP"/>
 							 	<p:outputLabel styleClass="rotulo" value="Data do Cadastro:"/>	  
 																
 							    <p:inputMask styleClass="campo" size="20" placeholder="00000-000"  mask="99999-999"
-							    	value="#{clienteController.cliente.endereco.cep}"/>	
+							    	value="#{ClienteBean.cliente.endereco.cep}"/>	
 							    <p:calendar disabled="true" size="20" styleClass="campo" pattern="dd/MM/yyyy" mask="true"
-							    	value="#{clienteController.cliente.dataCadastro}"/>  
+							    	value="#{ClienteBean.cliente.dataCadastro}"/>  
 							</h:panelGrid>	
 						</div>
 					</p:panel>		
 					
 					
+					<p:separator></p:separator>
 				</div>
 				
 		
