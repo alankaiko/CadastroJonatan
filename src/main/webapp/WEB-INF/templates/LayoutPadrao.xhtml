@@ -11,6 +11,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		 <title><ui:insert name="titulo">Sistema de Cadastro</ui:insert></title>
 		 <h:outputStylesheet library="css" name="sistema.css" />
+		 <h:link type="text-css" rel="Stylesheet" ></h:link>
+			<h:outputStylesheet name="webjars/font-awesome/5.0.10/css/font-awesome.css"></h:outputStylesheet>
 	</h:head>
 	
 	<h:body>
@@ -19,33 +21,41 @@
 		</div>
 		
 		<div id="painelEsquerda">
-					<div id="titulo">
-						<h:graphicImage id="imagen" library="images" name="logotipo.png"></h:graphicImage>
+			<div id="titulo">
+				<h:graphicImage id="imagen" library="images" name="logotipo.png"></h:graphicImage>
+			</div>
+			
+			<p:separator></p:separator>
+			
+			<div id="tituloUsuario">
+				<p:panel style="margin-top:10px;margin-bottom:10px">
+					<div>
+						<span>Bem Vindo!</span>
 					</div>
-					
-					<p:separator></p:separator>
-					
-					<div id="tituloUsuario">
-						<div>
-							<span>Bem Vindo!</span>
-						</div>
-						<div>
-							<span>Usuario: Alan Fernandes</span>s
-						</div>
+					<div>
+						<span>Usuario: Alan Fernandes</span>s
 					</div>
-					
-					<div id="painelCadastro">
-						
-					</div>
-					
-					<div id="painelPesquisar">
-					
-					</div>
-					
-					<div id="painelRelatorios">
-					
-					</div>
+				</p:panel>
+			</div>
+			
+			<div id="painelCadastro">
+				<div>
+					<p:button value="Cadastro" icon="fas fa-user-alt"/>
 				</div>
+			</div>
+					
+			<div id="painelCadastro">
+				<div>
+					<p:button value="Pesquisar" icon="ui-icon ui-c ui-icon-person"/>
+				</div>
+			</div>
+			
+			<div id="painelCadastro">
+				<div>
+					<p:button value="Relatórios" icon="ui-icon ui-c ui-icon-person"/>
+				</div>
+			</div>
+		</div>
 		
 		<div id="conteudo">
 			<ui:insert name="corpo"/>
