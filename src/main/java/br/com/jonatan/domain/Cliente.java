@@ -4,6 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Table
+@Entity
 public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -15,7 +28,13 @@ public class Cliente implements Serializable{
 	private String numeroIdentificacao;
 	private TipoPessoa tipo;
 	
+	
+	@OneToOne
+	@JoinColumn(name = "tbl_contato_id", referencedColumnName = "id")
 	private Contato contato;
+	
+	@OneToOne
+	@JoinColumn(name = "tbl_endereco_id", referencedColumnName = "id")
 	private Endereco endereco;
 	
 	public Cliente() {
@@ -26,6 +45,8 @@ public class Cliente implements Serializable{
 		endereco = new Endereco();
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -34,6 +55,7 @@ public class Cliente implements Serializable{
 		this.id = id;
 	}
 
+	@Column(nullable=false, length=100)
 	public String getNome() {
 		return nome;
 	}
@@ -42,6 +64,7 @@ public class Cliente implements Serializable{
 		this.nome = nome;
 	}
 
+	@Column(nullable = false, length = 14)
 	public String getDocumentoId() {
 		return documentoId;
 	}
@@ -50,6 +73,7 @@ public class Cliente implements Serializable{
 		this.documentoId = documentoId;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDataCadastro() {
 		return dataCadastro;
 	}
@@ -58,6 +82,7 @@ public class Cliente implements Serializable{
 		this.dataCadastro = dataCadastro;
 	}
 
+	@Temporal(TemporalType.DATE)
 	public Date getDataNasc() {
 		return dataNasc;
 	}
@@ -74,8 +99,6 @@ public class Cliente implements Serializable{
 		this.numeroIdentificacao = numeroIdentificacao;
 	}
 
-	
-	
 	public Contato getContato() {
 		return contato;
 	}

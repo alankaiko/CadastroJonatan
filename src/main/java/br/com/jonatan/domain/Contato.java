@@ -2,6 +2,11 @@ package br.com.jonatan.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Contato implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -16,6 +21,8 @@ public class Contato implements Serializable{
 		email = new String();
 	}
 
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -24,6 +31,7 @@ public class Contato implements Serializable{
 		this.id = id;
 	}
 
+	@Column(length=13)
 	public String getFixo() {
 		return fixo;
 	}
@@ -32,6 +40,7 @@ public class Contato implements Serializable{
 		this.fixo = fixo;
 	}
 
+	@Column(length=13)
 	public String getCelular() {
 		return celular;
 	}
@@ -40,6 +49,7 @@ public class Contato implements Serializable{
 		this.celular = celular;
 	}
 
+	@Column(length=60)
 	public String getEmail() {
 		return email;
 	}

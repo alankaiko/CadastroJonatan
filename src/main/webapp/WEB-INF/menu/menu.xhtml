@@ -12,13 +12,12 @@
 			
 			<p:menubar>
 			     <p:submenu label="Arquivo" icon="ui-icon-document">		
-			     	<p:menuitem value="Home" url="#" />
-			         <p:separator />
-			         <p:menuitem value="Sair" url="#" />
+			     	<p:menuitem value="Home" outcome="/paginas/home"/>
 			     </p:submenu>
 			
 			     <p:submenu label="Cadastro" icon="ui-icon-pencil">
-			         <p:menuitem value="Clientes" url="#" icon="ui-icon-folder-collapsed"/>
+			         <p:menuitem value="Consultar" outcome="/paginas/consulta" icon="ui-icon-folder-collapsed"/>
+			         <p:menuitem value="Cadastrar" outcome="/paginas/cadastrar" icon="ui-icon-folder-collapsed"/>
 			     </p:submenu>
 			
 			     <p:submenu label="Ajuda" icon="ui-icon-help">

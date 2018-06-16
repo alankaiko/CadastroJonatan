@@ -22,7 +22,7 @@
 		
 		<div id="painelEsquerda">
 			<div id="titulo">
-				<h:link outcome="/home.xhtml">
+				<h:link outcome="/paginas/home.xhtml">
 					<h:graphicImage id="imagen" library="images" name="logotipo.png"></h:graphicImage>
 				</h:link>
 			</div>
@@ -42,16 +42,16 @@
 			
 			<div id="painelCadastro">
 				<div>
-					<p:button value="Cadastro" icon="fas fa-user-alt"/>
-				</div>
-			</div>
-					
-			<div id="painelCadastro">
-				<div>
-					<p:button value="Pesquisar" icon="ui-icon ui-c ui-icon-person"/>
+					<p:button value="Cadastrar" icon="fas fa-user-alt" outcome="/paginas/cadastrar"/>
 				</div>
 			</div>
 			
+			<div id="painelCadastro">
+				<div>
+					<p:button value="Consultar" icon="fas fa-user-alt" outcome="/paginas/consulta"/>
+				</div>
+			</div>
+		
 			<div id="painelCadastro">
 				<div>
 					<p:button value="Relatórios" icon="ui-icon ui-c ui-icon-person"/>

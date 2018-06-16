@@ -2,16 +2,18 @@ package br.com.jonatan.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-
+@Table
+@Entity
 public class Endereco implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	private String logradouro;
 	private String complemento;
@@ -30,6 +32,8 @@ public class Endereco implements Serializable{
 		cep = new String();
 	}
 
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -38,6 +42,7 @@ public class Endereco implements Serializable{
 		this.id = id;
 	}
 
+	@Column(length=100)
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -46,6 +51,7 @@ public class Endereco implements Serializable{
 		this.logradouro = logradouro;
 	}
 
+	@Column(length=100)
 	public String getComplemento() {
 		return complemento;
 	}
@@ -54,6 +60,8 @@ public class Endereco implements Serializable{
 		this.complemento = complemento;
 	}
 
+
+	@Column(length=10)
 	public Integer getNumero() {
 		return numero;
 	}
@@ -62,6 +70,7 @@ public class Endereco implements Serializable{
 		this.numero = numero;
 	}
 
+	@Column(length=40)
 	public String getBairro() {
 		return bairro;
 	}
@@ -70,6 +79,7 @@ public class Endereco implements Serializable{
 		this.bairro = bairro;
 	}
 
+	@Column(length=40)
 	public String getCidade() {
 		return cidade;
 	}
@@ -78,6 +88,7 @@ public class Endereco implements Serializable{
 		this.cidade = cidade;
 	}
 
+	@Column(length=40)
 	public String getEstado() {
 		return estado;
 	}
@@ -86,6 +97,7 @@ public class Endereco implements Serializable{
 		this.estado = estado;
 	}
 
+	@Column(length=9)
 	public String getCep() {
 		return cep;
 	}

@@ -29,7 +29,7 @@
 				        </p:toolbarGroup>
 			            
 			            <p:toolbarGroup align="right">
-				            <p:button value="Pesquisar" icon="ui-icon-search"/>
+				            <p:button value="Pesquisar" icon="ui-icon-search" outcome="/paginas/consulta"/>
 				        </p:toolbarGroup>
 		   			</p:toolbar>  
 		   		        
@@ -126,7 +126,7 @@
 								<p:inputText styleClass="campo" size="20" value="#{ClienteBean.cliente.endereco.cidade}"/>
 								
 								<p:selectOneMenu id="estado" value="#{ClienteBean.cliente.endereco.estado}" style="vertical-align:middle">
-			                 		<f:selectItem itemLabel="Selecione..." />
+			                 		<f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
 	               					<f:selectItems value="#{ClienteBean.listaEstados}" var="listaEstado" 
 	               						itemValue="#{listaEstado}" itemLabel="#{listaEstado}"/>  
 			               		</p:selectOneMenu>			   
