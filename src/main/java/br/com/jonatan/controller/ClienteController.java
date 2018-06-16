@@ -29,8 +29,7 @@ public class ClienteController {
 	
 	
 	public void Salvando(){
-		System.out.println(cliente.toString());
-		//this.service.Salvar(this.cliente);
+		this.service.Salvar(this.cliente);
 	}
 	
 	public void Excluindo(){

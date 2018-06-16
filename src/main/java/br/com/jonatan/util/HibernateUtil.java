@@ -21,7 +21,7 @@ public class HibernateUtil {
         	return sessionFactory;        
         }
         catch (Throwable ex) {
-            System.err.println("Falha na criacao da Sessao" + ex);
+            System.err.println("FALHA NA CRIACAO DA SESSAO = " + ex);
             throw new ExceptionInInitializerError(ex);
         }
     }

@@ -3,10 +3,15 @@ package br.com.jonatan.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+
+@Table
+@Entity
 public class Contato implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -58,8 +63,6 @@ public class Contato implements Serializable{
 		this.email = email;
 	}
 	
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
