@@ -9,7 +9,7 @@
 	
 	<ui:define name="corpo">
 		<div id="cuerpo">
-			<p:dataTable value="#{clienteController.cliente}" var="item" id="tabelaCliente" style="margin-top: 15px; margin-left:10px;">
+			<p:dataTable value="#{consultaBean.listaClientes}" var="item" id="tabelaCliente" style="margin-top: 15px; margin-left:10px;">
 				<p:column class="colunas" headerText="Código" style="width: 50px">
 					<h:outputText value="#{item.id}"/>
 				</p:column>

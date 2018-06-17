@@ -1,6 +1,8 @@
 package br.com.jonatan.controller;
 
+import java.util.Date;
 import java.util.List;
+
 
 
 
@@ -14,15 +16,15 @@ import br.com.jonatan.domain.TipoPessoa;
 import br.com.jonatan.service.ClienteService;
 import br.com.jonatan.util.ListasUtil;
 
-@ManagedBean(name="ClienteBean")
+@ManagedBean
 @ViewScoped
-public class ClienteController {
+public class CadastrarBean {
 	private Cliente cliente;
 	private ClienteService service;
 	private List<String> listaEstados;
 	private TipoPessoa tipoPessoa;
 	
-	public ClienteController() {
+	public CadastrarBean() {
 		this.cliente = new Cliente();
 		this.service = new ClienteService();
 	}
@@ -48,7 +50,10 @@ public class ClienteController {
 	
 	
 	
-	
+	public Date getDataAtual(){
+		Date data = new Date();
+		return data;
+	}
 	
 	
 	public Cliente getCliente() {

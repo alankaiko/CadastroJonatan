@@ -1,10 +1,14 @@
 package br.com.jonatan.repository;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import br.com.jonatan.domain.Cliente;
 import br.com.jonatan.util.HibernateUtil;
+import br.com.jonatan.util.Mensagem;
 
 public class ClienteRepository {
 	Session sessao;
@@ -18,7 +22,11 @@ public class ClienteRepository {
 			sessao.merge(cliente);
 			transacao.commit();
 		} catch (Exception e) {
-			System.out.println("erro ao executar metodo Salvar do ClienteRepository");
+			if (transacao != null)
+				transacao.rollback();
+			
+			e.printStackTrace();
+			Mensagem.mensagemError("erro ao executar metodo Salvar do ClienteRepository");
 		}finally{
 			sessao.close();
 		}
@@ -32,11 +40,36 @@ public class ClienteRepository {
 			sessao.delete(cliente);
 			transacao.commit();
 		} catch (Exception e) {
-			System.out.println("erro ao executar metodo Excluir do ClienteRepository");
+			if (transacao != null)
+				transacao.rollback();
+			
+			e.printStackTrace();
+			Mensagem.mensagemError("erro ao executar metodo Excluir do ClienteRepository");
 		}finally{
 			sessao.close();
 		}
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	public List<Cliente> ListaCompleta(){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		List<Cliente> lista = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Cliente.listar");
+			lista = consulta.list();
+		} catch (RuntimeException e) {
+			throw e;
+		}finally{
+			sessao.close();
+		}
+		
+		return lista;
+	}
+	
+	
+	
+		
 	
 }

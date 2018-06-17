@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -20,6 +22,9 @@ import javax.persistence.TemporalType;
 
 @Table
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Cliente.listar", query="SELECT cliente FROM Cliente cliente order by id")
+})
 public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -75,7 +80,8 @@ public class Cliente implements Serializable{
 	}
 
 	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
+		if(this.dataCadastro == null)
+			this.dataCadastro = dataCadastro;
 	}
 
 	@Temporal(TemporalType.DATE)
