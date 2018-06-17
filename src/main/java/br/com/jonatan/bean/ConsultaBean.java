@@ -1,4 +1,4 @@
-package br.com.jonatan.controller;
+package br.com.jonatan.bean;
 
 import java.util.List;
 
@@ -15,6 +15,11 @@ public class ConsultaBean {
 	private List<Cliente> listaClientes;
 	private ClienteService service;
 	
+	public ConsultaBean() {
+		this.service = new ClienteService();
+	}
+
+	
 	public void pegaLista(){
 		this.listaClientes = this.service.pegandoListaCompleta();
 	}
@@ -23,4 +28,6 @@ public class ConsultaBean {
 		return listaClientes;
 	}
 	
+	
+
 }

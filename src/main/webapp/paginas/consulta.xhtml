@@ -4,38 +4,50 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/LayoutPadrao.xhtml">
+	
+	<f:metadata>
+		<f:viewAction action="#{consultaBean.pegaLista}" />
+	</f:metadata>
+	
 
 	<ui:define name="titulo">Gerenciar</ui:define>
 	
 	<ui:define name="corpo">
-		<div id="cuerpo">
-			<p:dataTable value="#{consultaBean.listaClientes}" var="item" id="tabelaCliente" style="margin-top: 15px; margin-left:10px;">
-				<p:column class="colunas" headerText="Código" style="width: 50px">
-					<h:outputText value="#{item.id}"/>
-				</p:column>
-				
-				<p:column class="colunas" headerText="Identificação" style="width: 230px">
-					<h:outputText value="#{item.nome}"/>
-				</p:column>
-				
-				<p:column class="colunas" headerText="CPF/CNPJ" style="width: 80px">
-					<h:outputText value="#{item.nome}"/>
-				</p:column>
-				
-				<p:column class="colunas" headerText="Telefone" style="width: 80px">
-					<h:outputText value="#{item.nome}"/>
-				</p:column>
-				
-				<p:column class="colunas" headerText="Cidade" style="width: 80px">
-					<h:outputText value="#{item.nome}"/>
-				</p:column>
-				
-				<p:column class="colunas" headerText="Opções" style="width: 50px">
-					<p:button icon="ui-icon-pencil" title="Editar"/>
-					<p:button icon="ui-icon-trash" title="Excluir"/>
-				</p:column>
-				
-			</p:dataTable>
+		<div id="cuerpo">	
+			<h:form>	
+				<p:dataTable value="#{consultaBean.listaClientes}" var="item" id="tabelaCliente" style="margin-top: 15px; margin-left:10px;">
+					<p:column class="colunas" headerText="Código" style="width: 50px">
+						<h:outputText value="#{item.id}"/>
+					</p:column>
+					
+					<p:column class="colunas" headerText="Identificação" style="width: 230px">
+						<h:outputText value="#{item.nome}"/>
+					</p:column>
+					
+					<p:column class="colunas" headerText="CPF/CNPJ" style="width: 80px">
+						<h:outputText value="#{item.nome}"/>
+					</p:column>
+					
+					<p:column class="colunas" headerText="Telefone" style="width: 80px">
+						<h:outputText value="#{item.nome}"/>
+					</p:column>
+					
+					<p:column class="colunas" headerText="Cidade" style="width: 80px">
+						<h:outputText value="#{item.nome}"/>
+					</p:column>
+					
+					<p:column class="colunas" headerText="Opções" style="width: 50px">
+						<p:button icon="ui-icon-pencil" title="Editar" outcome="/paginas/cadastrar">
+							<f:param name="editaCliente" value="#{item.id}"/>
+						</p:button>
+					
+						
+						<p:button icon="ui-icon-trash" title="Excluir"/>
+					</p:column>
+					
+				</p:dataTable>
+			</h:form>
+			
 		</div>
 	</ui:define>
 

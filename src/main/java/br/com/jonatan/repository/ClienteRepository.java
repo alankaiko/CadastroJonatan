@@ -69,7 +69,37 @@ public class ClienteRepository {
 	}
 	
 	
-	
+	public Cliente BuscarCliente(Long id){
+		sessao = HibernateUtil.getSessionFactory().openSession();
+		Cliente cliente = null;
+		
+		try {
+			Query consulta = sessao.getNamedQuery("Cliente.buscarPorCodigo");
+			consulta.setLong("id", id);
+			cliente = (Cliente) consulta.uniqueResult();
+		} catch (RuntimeException e) {
+			Mensagem.mensagemError("Erro ao executar metodo BuscarCliente");
+			throw e;			
+		}finally{
+			sessao.close();
+		}
+		
+		return cliente;
+	}
 		
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

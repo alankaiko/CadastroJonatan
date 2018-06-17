@@ -9,6 +9,8 @@
 	
 	<f:metadata>
 		<f:viewAction action="#{cadastrarBean.Inicializar}" />
+		<f:viewParam name="editaCliente" value="#{cadastrarBean.id}"/>
+		<f:event listener="#{cadastrarBean.CarregarUsuarioEditar}" type="preRenderView"/>
 	</f:metadata>
 	
 	<ui:define name="titulo">Cadastrar Clientes</ui:define>
@@ -24,8 +26,8 @@
 					 <p:toolbar style="margin-top: 20px">
 			            <p:toolbarGroup>
 			                <p:button value="Novo" icon="ui-icon-plusthick"/>
-			                <p:commandButton value="Salvar" ajax="false" update="@frmCadastro"
-			                	 icon="ui-icon-disk" action="#{cadastrarBean.Salvando}"/>  
+			                <p:commandButton value="Salvar" ajax="false" update="@form" icon="ui-icon-disk" 
+			                action="#{cadastrarBean.Salvando}" actionListener="#{cadastrarBean.Teste}"/>  
 				        </p:toolbarGroup>
 			            
 			            <p:toolbarGroup align="right">
@@ -42,7 +44,7 @@
 								<h:panelGrid columns="1" style="width: 100%;">
 									<p:outputLabel value="Código" styleClass="rotulo" />
 								
-									<p:inputText styleClass="campo" disabled="true" size="20"/>
+									<p:inputText styleClass="campo" disabled="true" size="20" value="#{cadastrarBean.cliente.id}"/>
 								</h:panelGrid>
 								
 								<h:panelGrid columns="1">

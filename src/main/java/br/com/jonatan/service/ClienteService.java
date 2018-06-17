@@ -24,6 +24,9 @@ public class ClienteService {
 		return this.repositorio.ListaCompleta();
 	}
 	
+	public Cliente BuscandoPorCodigo(Long id){
+		return this.repositorio.BuscarCliente(id);
+	}
 }
 
 
