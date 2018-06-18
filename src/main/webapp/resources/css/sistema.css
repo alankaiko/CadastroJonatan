@@ -47,7 +47,8 @@ body {
 	margin-top: 20px;
 	padding: 5px;
 	
-	text-align: center;
+	text-align: left;
+	font-size: 85%;
 }
 
 #painelEsquerda #painelCadastro {
@@ -70,6 +71,10 @@ body {
 	width: 35%;
 	height: auto;
 	
+}
+
+#painelEsquerda #tituloUsuario div span {
+	color: #0073ea;
 }
 
 #painelEsquerda div > div > .painelBotao {
@@ -116,8 +121,5 @@ body {
 #painelCadastro div .ui-button .ui-button-text {
 	padding: 0 0 0 0;
 }
-
-
-
 
 

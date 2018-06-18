@@ -16,6 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 @Table
 @Entity
@@ -54,7 +55,7 @@ public class Cliente implements Serializable{
 		this.id = id;
 	}
 
-	@Column(nullable=false, length=100)
+	@Column(nullable=false, unique=true, length=100)
 	public String getNome() {
 		return nome;
 	}
@@ -63,7 +64,7 @@ public class Cliente implements Serializable{
 		this.nome = nome;
 	}
 
-	@Column(nullable = false, length = 14)
+	@Column(nullable = false, unique=true, length = 14)
 	public String getDocumentoId() {
 		return documentoId;
 	}
@@ -91,6 +92,7 @@ public class Cliente implements Serializable{
 		this.dataNasc = dataNasc;
 	}
 
+	@Column(unique=true, length=15)
 	public String getNumeroIdentificacao() {
 		return numeroIdentificacao;
 	}

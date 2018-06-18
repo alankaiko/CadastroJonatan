@@ -48,9 +48,6 @@ public class CadastrarBean {
 		this.service.Salvar(this.cliente);
 	}
 	
-	public void Excluindo(){
-		this.service.Excluir(this.cliente);
-	}
 	
 	public void CarregarUsuarioEditar(){
 		if(this.id != null){

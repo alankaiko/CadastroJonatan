@@ -57,12 +57,12 @@
 								<h:panelGrid columns="2" style="width: 100%;">
 									<p:outputLabel value="CPF/CNPJ" styleClass="rotulo"/>
 									
-									<p:outputLabel styleClass="rotulo" value="RG/Inscrição:" />
+									<p:outputLabel styleClass="rotulo" value="RG/Inscrição:"/>
 								
 									<p:inputText styleClass="campo" size="20" requiredMessage="CPF/CNPJ deve ser informado"
 									value="#{cadastrarBean.cliente.documentoId}" required="true" immediate="true" maxlength="14"/>
 							
-									<p:inputText size="20" value="#{cadastrarBean.cliente.numeroIdentificacao}"/>
+									<p:inputText size="20" value="#{cadastrarBean.cliente.numeroIdentificacao}" maxlength="13"/>
 								</h:panelGrid>
 								
 								<h:panelGrid columns="2" style="width: 100%;">
@@ -150,7 +150,6 @@
 					
 					<p:separator></p:separator>
 				</div>
-				
 		
 			</h:form>
 		</div>

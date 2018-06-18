@@ -4,16 +4,48 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	template="/WEB-INF/templates/LayoutPadrao.xhtml">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-	<ui:insert name="titulo">Gerenciar Clientes</ui:insert>
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>Pagina Inicial</title>
+		<h:outputStylesheet library="css" name="sistema.css"/>
+	</h:head>
 	
-	<ui:insert name="corpo">
-		<div id="imagem" style="margin-top=25px">
-			<h:graphicImage library="images" name="logo01.png"/>
+	<h:body>
+		<div id="cabecalho">
+			<ui:include src="/WEB-INF/menu/menu.xhtml"></ui:include>
 		</div>
-	
-	</ui:insert>
-	
+		
+		<div id="painelEsquerda">
+			<div id="titulo">
+				<h:link outcome="/paginas/home.xhtml">
+					<h:graphicImage id="imagen" library="images" name="logotipo.png"></h:graphicImage>
+				</h:link>
+			</div>
+			
+			<p:separator></p:separator>
+			
+			<div id="tituloUsuario">
+				<p:panel style="margin-top:10px;margin-bottom:10px">
+					<div>
+						<span>Bem Vindo!</span>
+					</div>
+					<div>
+						<span>Usuario: Alan Fernandes</span>s
+					</div>
+				</p:panel>
+			</div>
+			
+			
+		</div>
+		
+		<div id="conteudo">
+			<ui:insert name="corpo"/>
+		</div>
+		
+		<div id="rodape">
+			
+		</div>
+	</h:body>
 </ui:composition>

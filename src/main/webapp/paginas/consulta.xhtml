@@ -14,7 +14,7 @@
 	
 	<ui:define name="corpo">
 		<div id="cuerpo">	
-			<h:form>	
+			<h:form id="frmConsulta">	
 				<p:dataTable value="#{consultaBean.listaClientes}" var="item" id="tabelaCliente" style="margin-top: 15px; margin-left:10px;">
 					<p:column class="colunas" headerText="Código" style="width: 50px">
 						<h:outputText value="#{item.id}"/>
@@ -25,15 +25,15 @@
 					</p:column>
 					
 					<p:column class="colunas" headerText="CPF/CNPJ" style="width: 80px">
-						<h:outputText value="#{item.nome}"/>
+						<h:outputText value="#{item.documentoId}"/>
 					</p:column>
 					
 					<p:column class="colunas" headerText="Telefone" style="width: 80px">
-						<h:outputText value="#{item.nome}"/>
+						<h:outputText value="#{item.contato.celular}"/>
 					</p:column>
 					
 					<p:column class="colunas" headerText="Cidade" style="width: 80px">
-						<h:outputText value="#{item.nome}"/>
+						<h:outputText value="#{item.endereco.cidade}"/>
 					</p:column>
 					
 					<p:column class="colunas" headerText="Opções" style="width: 50px">
@@ -42,10 +42,31 @@
 						</p:button>
 					
 						
-						<p:button icon="ui-icon-trash" title="Excluir"/>
+						<p:commandButton icon="ui-icon-trash" title="Excluir" 
+							oncomplete="PF('confirmaExclusao').show()" process="@this" 
+							update=":frmConsulta:tabelaCliente">
+							
+							<f:setPropertyActionListener value="#{item}" target="#{consultaBean.clienteSelecionado}"/>
+						</p:commandButton>
+						
+
 					</p:column>
 					
 				</p:dataTable>
+				
+				
+				<p:confirmDialog header="Exclusão de Cliente" 
+				message="Tem certeza que deseja excluir o cliente #{consultaBean.clienteSelecionado.nome}?"
+				widgetVar="confirmaExclusao" id="confirmaExclusaoDialog">
+				
+				<p:button value="Não" onclick="PF('confirmaExclusao').hide(); return false;"/>
+				
+				<p:commandButton value="Sim" oncomplete="PF('confirmaExclusao').hide();"
+					action="#{consultaBean.excluir}" process="@this" update=":frmConsulta:tabelaCliente"/>
+				
+				
+				</p:confirmDialog>
+				
 			</h:form>
 			
 		</div>

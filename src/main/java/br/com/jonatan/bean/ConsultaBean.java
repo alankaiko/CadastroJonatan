@@ -7,6 +7,7 @@ import javax.faces.bean.ViewScoped;
 
 import br.com.jonatan.domain.Cliente;
 import br.com.jonatan.service.ClienteService;
+import br.com.jonatan.util.Mensagem;
 
 
 @ManagedBean
@@ -14,6 +15,7 @@ import br.com.jonatan.service.ClienteService;
 public class ConsultaBean {
 	private List<Cliente> listaClientes;
 	private ClienteService service;
+	private Cliente clienteSelecionado;
 	
 	public ConsultaBean() {
 		this.service = new ClienteService();
@@ -24,10 +26,27 @@ public class ConsultaBean {
 		this.listaClientes = this.service.pegandoListaCompleta();
 	}
 	
+	public void excluir(){
+		try {
+			this.service.Excluir(this.clienteSelecionado);
+			
+			Mensagem.mensagemInfo("Cliente "+ this.clienteSelecionado.getNome()+ " Excluído com Sucesso");
+		} catch (Exception e) {
+			throw e;
+		}
+		
+	}
+	
 	public List<Cliente> getListaClientes() {
 		return listaClientes;
 	}
 	
 	
-
+	public Cliente getClienteSelecionado() {
+		return clienteSelecionado;
+	}
+	
+	public void setClienteSelecionado(Cliente clienteSelecionado) {
+		this.clienteSelecionado = clienteSelecionado;
+	}
 }
