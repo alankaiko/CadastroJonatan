@@ -27,7 +27,7 @@ public class CadastrarBean {
 		this.service = new ClienteService();
 	}
 	
-	public void Teste(){
+	public void Redirecionar(){
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect("/CadastroClientes/paginas/consulta.xhtml");
 		} catch (IOException e) {

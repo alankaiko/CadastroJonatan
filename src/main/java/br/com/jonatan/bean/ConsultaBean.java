@@ -1,9 +1,11 @@
 package br.com.jonatan.bean;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.jonatan.domain.Cliente;
 import br.com.jonatan.service.ClienteService;
@@ -36,6 +38,17 @@ public class ConsultaBean {
 		}
 		
 	}
+	
+	
+	public void Redirecionar(){
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("/CadastroClientes/paginas/consulta.xhtml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 	public List<Cliente> getListaClientes() {
 		return listaClientes;

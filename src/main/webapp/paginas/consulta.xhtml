@@ -15,7 +15,7 @@
 	<ui:define name="corpo">
 		<div id="cuerpo">	
 			<h:form id="frmConsulta">	
-				<p:dataTable value="#{consultaBean.listaClientes}" var="item" id="tabelaCliente" style="margin-top: 15px; margin-left:10px;">
+				<p:dataTable paginator="true" rows="12" paginatorPosition="bottom" value="#{consultaBean.listaClientes}" var="item" id="tabelaCliente" style="margin-top: 15px; margin-left:10px;">
 					<p:column class="colunas" headerText="Código" style="width: 50px">
 						<h:outputText value="#{item.id}"/>
 					</p:column>
@@ -62,7 +62,7 @@
 				<p:button value="Não" onclick="PF('confirmaExclusao').hide(); return false;"/>
 				
 				<p:commandButton value="Sim" oncomplete="PF('confirmaExclusao').hide();"
-					action="#{consultaBean.excluir}" process="@this" update=":frmConsulta:tabelaCliente"/>
+					action="#{consultaBean.excluir}" actionListener="#{consultaBean.Redirecionar}" process="@this" ajax="false"/>
 				
 				
 				</p:confirmDialog>

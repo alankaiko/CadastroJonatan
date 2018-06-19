@@ -122,4 +122,22 @@ body {
 	padding: 0 0 0 0;
 }
 
+.ui-paginator-bottom {
+	border-top: 0 none;
+	width: 79.39%;
+	float: left;
+}
+
+
+.ui-dialog-buttonpane{
+	text-align: center !important;
+}
+
+
+
+
+
+
+
+
 
