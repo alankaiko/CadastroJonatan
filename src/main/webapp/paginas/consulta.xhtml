@@ -44,7 +44,7 @@
 						
 						<p:commandButton icon="ui-icon-trash" title="Excluir" 
 							oncomplete="PF('confirmaExclusao').show()" process="@this" 
-							update=":frmConsulta:tabelaCliente">
+							update=":frmConsulta:confirmaExclusaoDialog">
 							
 							<f:setPropertyActionListener value="#{item}" target="#{consultaBean.clienteSelecionado}"/>
 						</p:commandButton>
@@ -63,9 +63,9 @@
 				
 				<p:commandButton value="Sim" oncomplete="PF('confirmaExclusao').hide();"
 					action="#{consultaBean.excluir}" actionListener="#{consultaBean.Redirecionar}" process="@this" ajax="false"/>
-				
-				
 				</p:confirmDialog>
+				
+				
 				
 			</h:form>
 			
