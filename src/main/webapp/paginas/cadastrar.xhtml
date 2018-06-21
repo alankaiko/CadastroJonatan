@@ -25,13 +25,13 @@
 					
 					 <p:toolbar style="margin-top: 20px">
 			            <p:toolbarGroup>
-			                <p:button value="Novo" icon="ui-icon-plusthick"/>
-			                <p:commandButton value="Salvar" ajax="false" update="@form" icon="ui-icon-disk" 
+			                <p:button value="Novo" icon="fa fa-fw fa-plus"/>
+			                <p:commandButton value="Salvar" ajax="false" update="@form" icon="fa fa-fw fa-save" 
 			                action="#{cadastrarBean.Salvando}" actionListener="#{cadastrarBean.Redirecionar}"/>  
 				        </p:toolbarGroup>
 			            
 			            <p:toolbarGroup align="right">
-				            <p:button value="Pesquisar" icon="ui-icon-search" outcome="/paginas/consulta"/>
+				            <p:button value="Pesquisar" icon="fa fa-fw fa-search" outcome="/paginas/consulta"/>
 				        </p:toolbarGroup>
 		   			</p:toolbar>  
 		   		        

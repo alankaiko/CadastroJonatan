@@ -36,13 +36,13 @@
 						<h:outputText value="#{item.endereco.cidade}"/>
 					</p:column>
 					
-					<p:column class="colunas" headerText="Opções" style="width: 50px">
-						<p:button icon="ui-icon-pencil" title="Editar" outcome="/paginas/cadastrar">
+					<p:column id="botaoExcluir" class="colunas" headerText="Opções" style="width: 50px;text-align:center">
+						<p:button icon="fa fa-fw fa-edit" title="Editar" outcome="/paginas/cadastrar">
 							<f:param name="editaCliente" value="#{item.id}"/>
 						</p:button>
 					
 						
-						<p:commandButton icon="ui-icon-trash" title="Excluir" 
+						<p:commandButton icon="fa fa-fw fa-trash" title="Excluir" 
 							oncomplete="PF('confirmaExclusao').show()" process="@this" 
 							update=":frmConsulta:confirmaExclusaoDialog">
 							
