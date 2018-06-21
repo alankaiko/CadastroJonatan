@@ -16,7 +16,7 @@
 		<div id="cuerpo">	
 			<h:form id="frmConsulta">	
 				<p:dataTable paginator="true" rows="12" paginatorPosition="bottom" value="#{consultaBean.listaClientes}" var="item" id="tabelaCliente" style="margin-top: 15px; margin-left:10px;">
-					<p:column class="colunas" headerText="Código" style="width: 50px">
+					<p:column class="colunas" headerText="Código" style="width: 25px;text-align:center">
 						<h:outputText value="#{item.id}"/>
 					</p:column>
 					
@@ -24,15 +24,15 @@
 						<h:outputText value="#{item.nome}"/>
 					</p:column>
 					
-					<p:column class="colunas" headerText="CPF/CNPJ" style="width: 80px">
+					<p:column class="colunas" headerText="CPF/CNPJ" style="width: 80px;text-align:center">
 						<h:outputText value="#{item.documentoId}"/>
 					</p:column>
 					
-					<p:column class="colunas" headerText="Telefone" style="width: 80px">
+					<p:column class="colunas" headerText="Telefone" style="width: 80px;text-align:center">
 						<h:outputText value="#{item.contato.celular}"/>
 					</p:column>
 					
-					<p:column class="colunas" headerText="Cidade" style="width: 80px">
+					<p:column class="colunas" headerText="Cidade" style="width: 80px;text-align:center">
 						<h:outputText value="#{item.endereco.cidade}"/>
 					</p:column>
 					
