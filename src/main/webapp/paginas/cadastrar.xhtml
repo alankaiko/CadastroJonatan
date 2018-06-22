@@ -36,6 +36,7 @@
 		   		        
 		        	<p:panel id="pnlDadosPessoais" header="Dados Pessoais">
 						<p:focus context="pnlDadosPessoais"/>
+							<div id="divPainel">
 					 		<div id="painelDados">
 								
 						 
@@ -57,28 +58,28 @@
 								</div>
 								
 								<div id="rotuloDiv">
-									<p:outputLabel value="CPF/CNPJ" styleClass="rotulo"/>
+									<p:outputLabel styleClass="rotulo" value="CPF/CNPJ"/>
 									
-									<p:outputLabel styleClass="rotulo" value="RG/Inscrição"/>
+									<p:outputLabel styleClass="rotuloDireito"  value="RG/Inscrição"/>
 								</div>
 								
 								<div id="campos">
 									<p:inputText styleClass="textoCampo" requiredMessage="CPF/CNPJ deve ser informado"
 									value="#{cadastrarBean.cliente.documentoId}" required="true" immediate="true" maxlength="14"/>
 							
-									<p:inputText  styleClass="textoCampo" value="#{cadastrarBean.cliente.numeroIdentificacao}" maxlength="13"/>
+									<p:inputText  styleClass="campoDireito" value="#{cadastrarBean.cliente.numeroIdentificacao}" maxlength="13"/>
 								</div>
 								
 								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="Data Nascimento"/>
-									<p:outputLabel styleClass="rotulo" value="Tipo"/>
+									<p:outputLabel styleClass="rotuloDireito" value="Tipo"/>
 								</div>
 								
 								<div id="campos">
 									<p:calendar styleClass="textoCampo" pattern="dd/MM/yyyy"
 										value="#{cadastrarBean.cliente.dataNasc}" mask="true" label="Nascimento"/>
 										 
-									<p:selectOneRadio  styleClass="textoCampo" value="#{cadastrarBean.cliente.tipo}">
+									<p:selectOneRadio  styleClass="campoDireito" value="#{cadastrarBean.cliente.tipo}">
 							            <f:selectItems value="#{cadastrarBean.tipos}" />
 						        	</p:selectOneRadio>
 								</div>
@@ -86,7 +87,7 @@
 								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="Telefone" />
 									
-									<p:outputLabel styleClass="rotulo" value="Celular" />
+									<p:outputLabel styleClass="rotuloDireito" value="Celular" />
 								</div>
 								
 								<div id="campos">
@@ -94,7 +95,7 @@
 										mask="(99) 9999-9999" maxlength="14" converter="telefoneConverter" >
 									</p:inputMask>
 									
-									<p:inputMask  styleClass="textoCampo" placeholder="(62)0 0000-0000" mask="(99)9 9999-9999"
+									<p:inputMask  styleClass="campoDireito" placeholder="(62)0 0000-0000" mask="(99)9 9999-9999"
 										value="#{cadastrarBean.cliente.contato.celular}"  converter="telefoneConverter"/>
 								</div>
 								
@@ -124,25 +125,25 @@
 								
 								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="Número"/>
-									<p:outputLabel styleClass="rotulo" value="Bairro"/>
+									<p:outputLabel styleClass="rotuloDireito" value="Bairro"/>
 								</div>
 								
 								<div id="campos">
 									<p:inputMask  styleClass="textoCampo" mask="9?999999" placeHolder="" value="#{cadastrarBean.cliente.endereco.numero}"/>
 									
-									<p:inputText  styleClass="textoCampo" value="#{cadastrarBean.cliente.endereco.bairro}"/>
+									<p:inputText  styleClass="campoDireito" value="#{cadastrarBean.cliente.endereco.bairro}"/>
 								</div>
 								
 								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="Cidade"/>
 									
-									<p:outputLabel styleClass="rotulo" value="UF"/>
+									<p:outputLabel styleClass="rotuloDireito" value="UF"/>
 								</div>
 								
 								<div id="campos">
 									<p:inputText styleClass="textoCampo" value="#{cadastrarBean.cliente.endereco.cidade}"/>
 									
-									<p:selectOneMenu  id="textoCampo" value="#{cadastrarBean.cliente.endereco.estado}" style="vertical-align:middle">
+									<p:selectOneMenu  styleClass="campoDireito" value="#{cadastrarBean.cliente.endereco.estado}" style="vertical-align:middle">
 				                 		<f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
 		               					<f:selectItems value="#{cadastrarBean.listaEstados}" var="listaEstado" 
 		               						itemLabel="#{listaEstado}" itemValue="#{listaEstado}" />  
@@ -152,16 +153,17 @@
 								
 								<div id="rotuloDiv">
 								 	<p:outputLabel styleClass="rotulo" value="CEP"/>
-								 	<p:outputLabel styleClass="rotulo" value="Data do Cadastro"/>	  		
+								 	<p:outputLabel styleClass="rotuloDireito" value="Data do Cadastro"/>	  		
 								</div>	
 								
 								<div id="campos">						
 								    <p:inputMask styleClass="textoCampo" placeholder="00000-000"  mask="99999-999"
 								    	value="#{cadastrarBean.cliente.endereco.cep}"/>	
 								   
-								    <p:calendar  disabled="true"  styleClass="textoCampo" pattern="dd/MM/yyyy" mask="true" 
+								    <p:calendar  disabled="true"  styleClass="campoDireito" pattern="dd/MM/yyyy" mask="true" 
 								    	value="#{cadastrarBean.dataAtual}"/>  
 								</div>
+						</div>
 						</div>
 					</p:panel>		
 					

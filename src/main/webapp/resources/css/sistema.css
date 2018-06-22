@@ -128,6 +128,7 @@ body {
 
 
 /*-----------CONFIGURACAO PAGINA DE CADASTRO------------*/
+
 #frmCadastro {
 	width: 100%;
 }
@@ -141,17 +142,36 @@ body {
 	 width:85%";
 }
 
+
+
 #pnlDadosPessoais #painelDados {
 	width: 100%;
 }
 
-#campos {
+#divPainel {
+	
+}
+
+#painelDados {
+	margin: 0 auto;;
+	margin-top: 5px;
 	width: 55%;
-	margin-bottom: 10px;
+	
+}
+
+#campos {
+	width: 100%;
+	margin-bottom: 15px;
 }
 
 #campos .textoCampo {
 	width: 30%;
+	float: left;
+}
+
+#campos .campoDireito {
+	width: 30%;
+	float: right;
 }
 
 #campos .textoMaior {
@@ -159,12 +179,19 @@ body {
 }
 
 #rotuloDiv {
-	
-	width: 55%;
+	width: 99.5%;
+	display: inline-flex;
+	margin-top: 15px;
 }
 
 #rotuloDiv .rotulo {
-	width: 98%;
-	border: 1px #CC0000 solid;
-	display: 
+	text-align: left;
+	width: 50%;
+	font-weight: bold;
+}
+
+#rotuloDiv .rotuloDireito {
+	text-align: right;
+	width: 50%;
+	font-weight: bold;
 }
