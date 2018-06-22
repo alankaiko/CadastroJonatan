@@ -16,14 +16,13 @@
 	<ui:define name="titulo">Cadastrar Clientes</ui:define>
 	
 	<ui:define name="corpo">
-		<div id="cuerpo">
 			<h:form id="frmCadastro" acceptcharset="ISO-8859-1">  
 				<p:messages id="messages" autoUpdate="true" closable="true" />
 			
 				
 				<div id="mainCentral">
 					
-					 <p:toolbar style="margin-top: 20px">
+					 <p:toolbar style="margin-top: 25px">
 			            <p:toolbarGroup>
 			                <p:button value="Novo" icon="fa fa-fw fa-plus"/>
 			                <p:commandButton value="Salvar" ajax="false" update="@form" icon="fa fa-fw fa-save" 
@@ -35,115 +34,134 @@
 				        </p:toolbarGroup>
 		   			</p:toolbar>  
 		   		        
-		        	<p:panel id="pnlDadosPessoais" header="Dados Pessoais" style="margin-top: 3px; width:85%">
+		        	<p:panel id="pnlDadosPessoais" header="Dados Pessoais">
 						<p:focus context="pnlDadosPessoais"/>
 					 		<div id="painelDados">
-								<h:inputHidden id="codigo"/>
-								<h:inputHidden id="ativo"/>
+								
 						 
-								<h:panelGrid columns="1" style="width: 100%;">
+								<div id="rotuloDiv">
 									<p:outputLabel value="Código" styleClass="rotulo" />
+								</div>
 								
-									<p:inputText styleClass="campo" disabled="true" size="20" value="#{cadastrarBean.cliente.id}"/>
-								</h:panelGrid>
+								<div id="campos">
+									<p:inputText styleClass="textoCampo" disabled="true" value="#{cadastrarBean.cliente.id}"/>
+								</div>
 								
-								<h:panelGrid columns="1">
-									<p:outputLabel value="Nome:" styleClass="rotulo" />
-									
-									<p:inputText styleClass="campo" id="nome" label="Nome" size="80" required="true" immediate="true"
+								<div id="rotuloDiv">
+									<p:outputLabel value="Nome" styleClass="rotulo" />
+								</div>
+								
+								<div id="campos">
+									<p:inputText styleClass="textoMaior" label="Nome" required="true" immediate="true"
 										requiredMessage="Nome deve ser informado." value="#{cadastrarBean.cliente.nome}"/>
-								</h:panelGrid>
+								</div>
 								
-								<h:panelGrid columns="2" style="width: 100%;">
+								<div id="rotuloDiv">
 									<p:outputLabel value="CPF/CNPJ" styleClass="rotulo"/>
 									
-									<p:outputLabel styleClass="rotulo" value="RG/Inscrição:"/>
+									<p:outputLabel styleClass="rotulo" value="RG/Inscrição"/>
+								</div>
 								
-									<p:inputText styleClass="campo" size="20" requiredMessage="CPF/CNPJ deve ser informado"
+								<div id="campos">
+									<p:inputText styleClass="textoCampo" requiredMessage="CPF/CNPJ deve ser informado"
 									value="#{cadastrarBean.cliente.documentoId}" required="true" immediate="true" maxlength="14"/>
 							
-									<p:inputText size="20" value="#{cadastrarBean.cliente.numeroIdentificacao}" maxlength="13"/>
-								</h:panelGrid>
+									<p:inputText  styleClass="textoCampo" value="#{cadastrarBean.cliente.numeroIdentificacao}" maxlength="13"/>
+								</div>
 								
-								<h:panelGrid columns="2" style="width: 100%;">
+								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="Data Nascimento"/>
-									<p:outputLabel styleClass="rotulo" value="Tipo" for="tipoPessoa"/>
-		
-									<p:calendar styleClass="campo" id="nascimento" pattern="dd/MM/yyyy"
-										value="#{cadastrarBean.cliente.dataNasc}" mask="true" label="Nascimento" size="20"/>
+									<p:outputLabel styleClass="rotulo" value="Tipo"/>
+								</div>
+								
+								<div id="campos">
+									<p:calendar styleClass="textoCampo" pattern="dd/MM/yyyy"
+										value="#{cadastrarBean.cliente.dataNasc}" mask="true" label="Nascimento"/>
 										 
-									<p:selectOneRadio id="tipoPessoa" value="#{cadastrarBean.cliente.tipo}">
+									<p:selectOneRadio  styleClass="textoCampo" value="#{cadastrarBean.cliente.tipo}">
 							            <f:selectItems value="#{cadastrarBean.tipos}" />
 						        	</p:selectOneRadio>
-								</h:panelGrid>
+								</div>
 								
-								<h:panelGrid columns="2" style="width: 100%;">
+								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="Telefone" />
 									
 									<p:outputLabel styleClass="rotulo" value="Celular" />
+								</div>
 								
-									<p:inputMask size="20" styleClass="campo" placeholder="(62)0000-0000" value="#{cadastrarBean.cliente.contato.fixo}" 
+								<div id="campos">
+									<p:inputMask styleClass="textoCampo" placeholder="(62)0000-0000" value="#{cadastrarBean.cliente.contato.fixo}" 
 										mask="(99) 9999-9999" maxlength="14" converter="telefoneConverter" >
 									</p:inputMask>
 									
-									<p:inputMask size="20" styleClass="campo" placeholder="(62)0 0000-0000" 
-										mask="(99)9 9999-9999" value="#{cadastrarBean.cliente.contato.celular}"  converter="telefoneConverter"/>
-								</h:panelGrid>
+									<p:inputMask  styleClass="textoCampo" placeholder="(62)0 0000-0000" mask="(99)9 9999-9999"
+										value="#{cadastrarBean.cliente.contato.celular}"  converter="telefoneConverter"/>
+								</div>
 								
-								<h:panelGrid columns="1">
+								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="E-mail" />
-							
-								    <p:inputText size="80" styleClass="campo" placeholder="email@email.com.br" 
-								    	value="#{cadastrarBean.cliente.contato.email}"/>
-								   
-						      	</h:panelGrid>
+								</div>
 								
-								<h:panelGrid columns="1">
-									<p:outputLabel styleClass="rotulo" value="Logradouro:"/>
-									<p:inputText styleClass="campo" size="80" value="#{cadastrarBean.cliente.endereco.logradouro}"/>
-								</h:panelGrid>
+								<div id="campos">
+								    <p:inputText styleClass="textoMaior" placeholder="email@email.com.br" value="#{cadastrarBean.cliente.contato.email}"/>
+								</div>
 								
-								<h:panelGrid columns="1">
+								<div id="rotuloDiv">
+									<p:outputLabel styleClass="rotulo" value="Logradouro"/>
+								</div>
+								
+								<div id="campos">
+									<p:inputText  styleClass="textoMaior" value="#{cadastrarBean.cliente.endereco.logradouro}"/>
+								</div>
+								
+								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="Complemento"/>
-									<p:inputText styleClass="campo" size="80" value="#{cadastrarBean.cliente.endereco.complemento}"/>
-								</h:panelGrid>
+								</div>
 								
-								<h:panelGrid columns="2" style="width: 100%;">
+								<div id="campos">
+									<p:inputText  styleClass="textoMaior" value="#{cadastrarBean.cliente.endereco.complemento}"/>
+								</div>
+								
+								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="Número"/>
-									<p:outputLabel styleClass="rotulo" value="Bairro:"/>
+									<p:outputLabel styleClass="rotulo" value="Bairro"/>
+								</div>
 								
-									<p:inputMask styleClass="campo" size="20" mask="9?999999" 
-										placeHolder="" value="#{cadastrarBean.cliente.endereco.numero}"/>
+								<div id="campos">
+									<p:inputMask  styleClass="textoCampo" mask="9?999999" placeHolder="" value="#{cadastrarBean.cliente.endereco.numero}"/>
 									
-									<p:inputText styleClass="campo" size="28" 
-										value="#{cadastrarBean.cliente.endereco.bairro}"/>
-								</h:panelGrid>
+									<p:inputText  styleClass="textoCampo" value="#{cadastrarBean.cliente.endereco.bairro}"/>
+								</div>
 								
-								<h:panelGrid columns="2" style="width: 100%;">
+								<div id="rotuloDiv">
 									<p:outputLabel styleClass="rotulo" value="Cidade"/>
 									
 									<p:outputLabel styleClass="rotulo" value="UF"/>
+								</div>
 								
-									<p:inputText styleClass="campo" size="20" value="#{cadastrarBean.cliente.endereco.cidade}"/>
+								<div id="campos">
+									<p:inputText styleClass="textoCampo" value="#{cadastrarBean.cliente.endereco.cidade}"/>
 									
-									<p:selectOneMenu id="estado" value="#{cadastrarBean.cliente.endereco.estado}" style="vertical-align:middle">
+									<p:selectOneMenu  id="textoCampo" value="#{cadastrarBean.cliente.endereco.estado}" style="vertical-align:middle">
 				                 		<f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
 		               					<f:selectItems value="#{cadastrarBean.listaEstados}" var="listaEstado" 
 		               						itemLabel="#{listaEstado}" itemValue="#{listaEstado}" />  
 				               		</p:selectOneMenu>			   
-								</h:panelGrid>
+								</div>
 									
 								
-								<h:panelGrid columns="2" style="width: 100%;">
+								<div id="rotuloDiv">
 								 	<p:outputLabel styleClass="rotulo" value="CEP"/>
-								 	<p:outputLabel styleClass="rotulo" value="Data do Cadastro:"/>	  
-																	
-								    <p:inputMask styleClass="campo" size="20" placeholder="00000-000"  mask="99999-999"
+								 	<p:outputLabel styleClass="rotulo" value="Data do Cadastro:"/>	  		
+								</div>	
+								
+								<div id="campos">						
+								    <p:inputMask styleClass="textoCampo" placeholder="00000-000"  mask="99999-999"
 								    	value="#{cadastrarBean.cliente.endereco.cep}"/>	
 								   
-								    <p:calendar disabled="true" size="20" styleClass="campo" pattern="dd/MM/yyyy" mask="true"
+								    <p:calendar disabled="true"  styleClass="textoCampo" pattern="dd/MM/yyyy" mask="true"
 								    	value="#{cadastrarBean.dataAtual}"/>  
-								</h:panelGrid>	
+								</div>
 						</div>
 					</p:panel>		
 					
@@ -152,7 +170,6 @@
 				</div>
 		
 			</h:form>
-		</div>
 	</ui:define>
 	
 </ui:composition>

@@ -1,7 +1,6 @@
 @charset "utf-8";
 
-
-html{
+html {
 	height: 100%;
 }
 
@@ -9,32 +8,14 @@ body {
 	font-size: 13px;
 }
 
-
 #corpo {
 	width: 100%;
 }
 
-#mainCentral {
-	float: right;
-	width: 78%;
-	height: auto;
+#cuerpo {
+	width: 100%;
 }
-
-
-
-#painelDados {
-	margin-left: 15%;
-}
-
-
-#painelDados .campoCodigo {
-	width: 25%;
-}
-
-
-
-
-
+/*-----------CONFIGURACAO DO PAINEL UTILIZADO QUE FICA NA ESQUERDA EM CADASTRO E CONSULTA------------*/
 
 #painelEsquerda {
 	float: left;
@@ -42,7 +23,6 @@ body {
 	position: relative;
 	margin-top: 20px;
 	padding: 5px;
-	
 	text-align: left;
 	font-size: 85%;
 }
@@ -67,43 +47,34 @@ body {
 #painelEsquerda #titulo img {
 	width: 35%;
 	height: auto;
-	
 }
 
 #painelEsquerda #tituloUsuario div span {
-	color: #0073ea;
+	color: #F20086;
 }
 
-#painelEsquerda div > div > .painelBotao {
-	width:30%;
-    padding: 1em;
-    margin-top: 15px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
+#painelEsquerda div>div>.painelBotao {
+	width: 30%;
+	padding: 1em;
+	margin-top: 15px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
-#conteudo {
-	float:right;
-	width: 79%;
-}
-
-
-#painelCadastro div .ui-button{
+#painelCadastro div .ui-button {
 	width: 100%;
 	height: 75px;
 	-moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
+	-webkit-border-radius: 2px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
-
-
 
 #painelCadastro div .ui-button .ui-icon {
 	position: relative;
@@ -117,35 +88,83 @@ body {
 #painelCadastro div .ui-button .ui-icon-text {
 	margin: 0 auto;
 	display: none;
-	
 }
 
 #painelCadastro div .ui-button .ui-button-text {
 	padding: 0 0 0 0;
 }
 
-.ui-paginator-bottom {
-	border-top: 0 none;
-	width: 79.39%;
-	float: left;
-}
 
 
-.ui-dialog-buttonpane{
+.ui-dialog-buttonpane {
 	text-align: center !important;
 }
 
 
 
+/*-----------CONFIGURACAO PAGINA DE CONSULTA------------*/
 #conteudoHome {
 	float: right;
-	width: 79%;
+	width: 78%;
 	position: relative;
 	margin: 0 auto;
-	margin-top:15px;
-	padding:0;
+	margin-top: 15px;
+	padding: 0;
 	text-align: center;
+}
+
+#ui-datatable-tablewrapper {
+	width: 100%;
+}
+
+
+#conteudo {
+	float: right;
+	width: 78%;
 }
 
 
 
+
+
+/*-----------CONFIGURACAO PAGINA DE CADASTRO------------*/
+#frmCadastro {
+	width: 100%;
+}
+
+#mainCentral {
+	width: 100%;
+}
+
+#pnlDadosPessoais {
+	 margin-top: 3px; 
+	 width:85%";
+}
+
+#pnlDadosPessoais #painelDados {
+	width: 100%;
+}
+
+#campos {
+	width: 55%;
+	margin-bottom: 10px;
+}
+
+#campos .textoCampo {
+	width: 30%;
+}
+
+#campos .textoMaior {
+	width: 98%;
+}
+
+#rotuloDiv {
+	
+	width: 55%;
+}
+
+#rotuloDiv .rotulo {
+	width: 98%;
+	border: 1px #CC0000 solid;
+	display: 
+}
