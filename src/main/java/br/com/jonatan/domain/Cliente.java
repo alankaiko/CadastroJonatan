@@ -79,8 +79,7 @@ public class Cliente implements Serializable{
 	}
 
 	public void setDataCadastro(Date dataCadastro) {
-		if(this.dataCadastro == null)
-			this.dataCadastro = dataCadastro;
+		this.dataCadastro = dataCadastro;
 	}
 
 	@Temporal(TemporalType.DATE)

@@ -21,6 +21,7 @@ public class CadastrarBean {
 	private ClienteService service;
 	private TipoPessoa tipoPessoa;
 	private Long id;
+	private Date data;
 
 	public CadastrarBean() {
 		this.cliente = new Cliente();
@@ -38,13 +39,19 @@ public class CadastrarBean {
 	public void Inicializar() {
 		listaEstados = ListasUtil.Estados();
 	}
+	
 
 	public Date getDataAtual() {
-		Date data = new Date();
+		if(this.id != null){
+			data = this.cliente.getDataCadastro();
+		}else{
+			data = new Date();
+		}
 		return data;
 	}
 	
 	public void Salvando(){
+		this.cliente.setDataCadastro(this.data);
 		this.service.Salvar(this.cliente);
 	}
 	
@@ -52,6 +59,7 @@ public class CadastrarBean {
 	public void CarregarUsuarioEditar(){
 		if(this.id != null){
 			this.cliente = service.BuscandoPorCodigo(this.id);
+			
 		}
 	}
 	

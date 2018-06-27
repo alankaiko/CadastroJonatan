@@ -152,14 +152,14 @@
 								
 								<div id="rotuloDiv">
 								 	<p:outputLabel styleClass="rotulo" value="CEP"/>
-								 	<p:outputLabel styleClass="rotulo" value="Data do Cadastro:"/>	  		
+								 	<p:outputLabel styleClass="rotulo" value="Data do Cadastro"/>	  		
 								</div>	
 								
 								<div id="campos">						
 								    <p:inputMask styleClass="textoCampo" placeholder="00000-000"  mask="99999-999"
 								    	value="#{cadastrarBean.cliente.endereco.cep}"/>	
 								   
-								    <p:calendar disabled="true"  styleClass="textoCampo" pattern="dd/MM/yyyy" mask="true"
+								    <p:calendar  disabled="true"  styleClass="textoCampo" pattern="dd/MM/yyyy" mask="true" 
 								    	value="#{cadastrarBean.dataAtual}"/>  
 								</div>
 						</div>
